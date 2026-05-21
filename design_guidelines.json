@@ -1,0 +1,256 @@
+{
+  "app_name": "ATLANTIS EXPERIENCE",
+  "personality": "6 Glass / Luxe DARK (with 7 Dark-First Utility typography fusion)",
+  "personality_one_liner": "A cinematic, ultra-premium underwater AR HUD combining deep-ocean mystery with sleek, holographic sci-fi gaming interfaces.",
+  "theme": {
+    "light": {
+      "surface": "#F0F4F8",
+      "onSurface": "#050A10",
+      "surfaceSecondary": "#FFFFFF",
+      "onSurfaceSecondary": "#111A24",
+      "surfaceTertiary": "#E2E8F0",
+      "onSurfaceTertiary": "#2D3748",
+      "surfaceInverse": "#050A10",
+      "onSurfaceInverse": "#F0F4F8",
+      "brand": "#00E5FF",
+      "brandPrimary": "#0099AA",
+      "onBrandPrimary": "#FFFFFF",
+      "brandSecondary": "#00B3A1",
+      "onBrandSecondary": "#FFFFFF",
+      "brandTertiary": "#CCFAFF",
+      "onBrandTertiary": "#003333",
+      "success": "#00A68A",
+      "onSuccess": "#FFFFFF",
+      "warning": "#CC8500",
+      "onWarning": "#FFFFFF",
+      "error": "#CC0033",
+      "onError": "#FFFFFF",
+      "info": "#0066CC",
+      "onInfo": "#FFFFFF",
+      "border": "#CBD5E0",
+      "borderStrong": "#0099AA",
+      "divider": "#E2E8F0"
+    },
+    "dark": {
+      "surface": "#050A10",
+      "onSurface": "#F0F4F8",
+      "surfaceSecondary": "#0E1724",
+      "onSurfaceSecondary": "#D9E2EC",
+      "surfaceTertiary": "#152336",
+      "onSurfaceTertiary": "#BCCCDC",
+      "surfaceInverse": "#F0F4F8",
+      "onSurfaceInverse": "#050A10",
+      "brand": "#00E5FF",
+      "brandPrimary": "#00E5FF",
+      "onBrandPrimary": "#00060A",
+      "brandSecondary": "#14F1D9",
+      "onBrandSecondary": "#001A17",
+      "brandTertiary": "#004752",
+      "onBrandTertiary": "#CCFAFF",
+      "success": "#14F1D9",
+      "onSuccess": "#001A17",
+      "warning": "#FFB800",
+      "onWarning": "#332500",
+      "error": "#FF2E63",
+      "onError": "#330914",
+      "info": "#0099FF",
+      "onInfo": "#001E33",
+      "border": "#1A2B40",
+      "borderStrong": "#00E5FF",
+      "divider": "#152336"
+    }
+  },
+  "typography": {
+    "displayFontFamily": "SpaceGrotesk",
+    "textFontFamily": "Montserrat",
+    "scale": {
+      "sm": 14,
+      "base": 16,
+      "lg": 18,
+      "xl": 22,
+      "2xl": 28
+    }
+  },
+  "spacing": {
+    "rule": "Minimal and deliberate. Large bottom padding (3xl) over the custom HUD tab bar. Use glass overlays instead of raw margin.",
+    "xs": 4,
+    "sm": 8,
+    "md": 12,
+    "lg": 16,
+    "xl": 24,
+    "2xl": 32,
+    "3xl": 48
+  },
+  "radius_tokens": {
+    "sm": 6,
+    "md": 12,
+    "lg": 20,
+    "pill": 999
+  },
+  "shadow_tier": "0",
+  "navigation": "bottom_tabs",
+  "icon_set": "Phosphor",
+  "glassmorphism": {
+    "enabled": true,
+    "do's": [
+      "Use intense blur (70+) paired with strong base tints for HUD elements.",
+      "Apply to custom bottom tab bar, floating mission cards, and AI chat bubbles.",
+      "Use on sticky headers over underwater backgrounds."
+    ],
+    "dont's": [
+      "Don't stack more than 2 glass surfaces.",
+      "Don't blur full screen content behind modals without proper contrast.",
+      "Don't use weak blur that allows text behind to be legible."
+    ]
+  },
+  "haptics": {
+    "enabled": true,
+    "NO_TOLERANCE": "always have switcher in settings or profile page",
+    "library": "expo-haptics",
+    "events": {
+      "tab_switch": "selection",
+      "toggle_switch_flip": "selection",
+      "segmented_control_change": "selection",
+      "filter_chip_select": "selection",
+      "slider_drag_end": "selection",
+      "primary_cta_tap": "impact_medium",
+      "submission_success": "notification_success",
+      "submission_error": "notification_error",
+      "pull_to_refresh_trigger": "impact_light",
+      "long_press_confirm": "impact_heavy"
+    },
+    "wiring": "Haptic calls live inside these components (Button primary, TabBar item, SegmentedControl, FilterChip, switch, slider) they fire automatically on use. Dev agent does NOT wire haptics ad-hoc per screen."
+  },
+  "platform_libraries": {
+    "tabs": {
+      "ios": "NativeTabs (from expo-router/unstable-native-tabs)",
+      "android": "Tabs (from expo-router)"
+    },
+    "glass": {
+      "ios": "expo-glass-effect",
+      "android": "expo-blur",
+      "low_end_android_fallback": "solid surfaceSecondary"
+    },
+    "image": "expo-image",
+    "gradient": "expo-linear-gradient",
+    "blur": "expo-blur",
+    "haptics": "expo-haptics",
+    "safe_area": "react-native-safe-area-context",
+    "bottom_sheet": "@gorhom/bottom-sheet",
+    "animation": "react-native-reanimated",
+    "gesture": "react-native-gesture-handler",
+    "icons": "@expo/vector-icons"
+  },
+  "screens": [
+    {
+      "name": "Welcome/Auth",
+      "purpose": "Cinematic introduction to the AR experience with immersive underwater video/image and glass auth forms.",
+      "states": {
+        "loading": "Skeleton glass cards over dark ocean background.",
+        "empty": "N/A",
+        "error": "Glass toast with red glow and retry button."
+      }
+    },
+    {
+      "name": "Home",
+      "purpose": "Immersive dashboard with title 'SUMÉRGETE EN LA EXPERIENCIA', quick actions (Explorar océano, Iniciar misión, Mis logros) and a futuristic HUD vibe.",
+      "states": {
+        "loading": "Shimmering cyan skeletons for HUD cards.",
+        "empty": "N/A",
+        "error": "Error toast, retry button centered in HUD."
+      }
+    },
+    {
+      "name": "Map",
+      "purpose": "Interactive dark underwater map with 12 real sculpture locations (locked/unlocked) and glowing pins.",
+      "states": {
+        "loading": "Full screen skeleton map with scanning line animation.",
+        "empty": "No sculptures found near you. Pan map.",
+        "error": "Failed to load sonar data. Retry connection."
+      }
+    },
+    {
+      "name": "Missions",
+      "purpose": "List of gamified challenges (Ocean Explorer, Marine Guardian) with XP, levels, and progress tracking.",
+      "states": {
+        "loading": "List of skeleton cards simulating the mission cards.",
+        "empty": "No active missions. Dive in to start one.",
+        "error": "Mission database offline."
+      }
+    },
+    {
+      "name": "AR Experience",
+      "purpose": "Simulated Apple Vision Pro style underwater AR view identifying real Museo Atlántico sculptures with cyan holographic overlays.",
+      "states": {
+        "loading": "Camera initialization skeleton (spinning cyan ring).",
+        "empty": "No sculptures detected. Point camera at the ocean floor.",
+        "error": "Camera access denied or signal lost."
+      }
+    },
+    {
+      "name": "AI Chat",
+      "purpose": "Holographic ATLANTIS AI assistant for lore and guidance, set against a bioluminescent ocean backdrop.",
+      "states": {
+        "loading": "Chat bubble skeletons and glowing AI particle pulse.",
+        "empty": "AI is listening... Ask about the Rubicon.",
+        "error": "Connection to Atlantis Mainframe lost."
+      }
+    },
+    {
+      "name": "Profile & Rewards",
+      "purpose": "Gamified player card (Level 7 Ocean Explorer, 1250 XP), badges, and unlockable discounts in a futuristic showcase.",
+      "states": {
+        "loading": "Skeleton for profile header and 3D badge grid.",
+        "empty": "No badges earned yet.",
+        "error": "Failed to sync profile data."
+      }
+    }
+  ],
+  "images": {
+    "welcome_bg": {
+      "light": "https://static.prod-images.emergentagent.com/jobs/61c5f945-c742-492e-9b3e-9bb16235e26c/images/d7b2af015142f11f30940a9f867a7b36e2d20280064b77636de415d76b314323.png",
+      "dark": "https://static.prod-images.emergentagent.com/jobs/61c5f945-c742-492e-9b3e-9bb16235e26c/images/d7b2af015142f11f30940a9f867a7b36e2d20280064b77636de415d76b314323.png",
+      "alt": "Wide-angle cinematic shot of the ocean floor, concrete sculptures, cyan particles"
+    },
+    "map_background": {
+      "light": "https://static.prod-images.emergentagent.com/jobs/61c5f945-c742-492e-9b3e-9bb16235e26c/images/018db579849cb8904b4428a6fa35f4614be6a5bb3f0e408da8c4d1175de37932.png",
+      "dark": "https://static.prod-images.emergentagent.com/jobs/61c5f945-c742-492e-9b3e-9bb16235e26c/images/018db579849cb8904b4428a6fa35f4614be6a5bb3f0e408da8c4d1175de37932.png",
+      "alt": "Dark futuristic HUD map of the ocean floor, glowing cyan topographic lines"
+    },
+    "ar_simulation": {
+      "light": "https://static.prod-images.emergentagent.com/jobs/61c5f945-c742-492e-9b3e-9bb16235e26c/images/845d4a6b3dd5616df00953c2c7020245db57213b17d7dfadfb79d5673b46ca68.png",
+      "dark": "https://static.prod-images.emergentagent.com/jobs/61c5f945-c742-492e-9b3e-9bb16235e26c/images/845d4a6b3dd5616df00953c2c7020245db57213b17d7dfadfb79d5673b46ca68.png",
+      "alt": "First person view underwater with cyan holographic scanning grid overlay on statues"
+    },
+    "ai_chat_hologram_bg": {
+      "light": "https://static.prod-images.emergentagent.com/jobs/61c5f945-c742-492e-9b3e-9bb16235e26c/images/74427f55e7fa7e6747ed44f10b0ed09096a629a037ad96dc7811e5239b1cab86.png",
+      "dark": "https://static.prod-images.emergentagent.com/jobs/61c5f945-c742-492e-9b3e-9bb16235e26c/images/74427f55e7fa7e6747ed44f10b0ed09096a629a037ad96dc7811e5239b1cab86.png",
+      "alt": "Dark ocean water, subtle glowing bioluminescent cyan particles, holographic HUD"
+    },
+    "rubicon_sculpture": {
+      "light": "https://images.pexels.com/photos/31973393/pexels-photo-31973393.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+      "dark": "https://images.pexels.com/photos/31973393/pexels-photo-31973393.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+      "alt": "Submerged sculptures in vibrant sea"
+    },
+    "diver_scuba": {
+      "light": "https://images.unsplash.com/photo-1704676836005-713d641c9983?crop=entropy&cs=srgb&fm=jpg&ixid=M3w4NTYxODh8MHwxfHNlYXJjaHwyfHx1bmRlcndhdGVyJTIwZGl2ZXIlMjBnbG93aW5nJTIwZGFyayUyMG9jZWFufGVufDB8fHx8MTc3OTM3NDY0Mnww&ixlib=rb-4.1.0&q=85",
+      "dark": "https://images.unsplash.com/photo-1704676836005-713d641c9983?crop=entropy&cs=srgb&fm=jpg&ixid=M3w4NTYxODh8MHwxfHNlYXJjaHwyfHx1bmRlcndhdGVyJTIwZGl2ZXIlMjBnbG93aW5nJTIwZGFyayUyMG9jZWFufGVufDB8fHx8MTc3OTM3NDY0Mnww&ixlib=rb-4.1.0&q=85",
+      "alt": "Scuba diver with flashlight in the dark water"
+    }
+  },
+  "chip_row": {
+    "enabled": true,
+    "rules": "Fixed 36pt height, 56pt row height, horizontal scroll only. Sits outside ScrollView in sticky header. Identical across all screen states (Loading/Empty/Error)."
+  },
+  "instructions_to_main_agent": [
+    "Strictly follow DARK THEME. This is an ultra premium AAA-game aesthetic.",
+    "Borders should act as holographic highlights. Apply `borderStrong` (#00E5FF) to active state borders and glow effects to create a sci-fi HUD feel.",
+    "Tab bar MUST be a custom floating HUD style. Use `expo-glass-effect` with `surfaceSecondary` at 70% opacity and a thin `borderStrong` top border.",
+    "Screens: Map, AR Experience, and AI Chat must use absolute positioned background images (`map_background`, `ar_simulation`, `ai_chat_hologram_bg`) stretched full screen (`StyleSheet.absoluteFillObject`) to provide the cinematic deep sea base.",
+    "Overlays: Every full screen image MUST have a top-to-bottom `expo-linear-gradient` scrim starting at transparent and fading to 80-90% `surfaceInverse` at the bottom to ensure text readability.",
+    "Typography: Use SpaceGrotesk for display (titles, levels, headers) and Montserrat for body. Both capped at max weight 500. Let size denote hierarchy.",
+    "Data screens (Missions, Profile) MUST implement the required Loading skeleton (animated shimmer over `surfaceTertiary` boxes), Empty state (Icon + message), and Error state.",
+    "Always provide a Top Filter/Category Chip Row in list screens (like Missions or Map Filters) using the rigid 36pt height constraint, rendered outside the ScrollView.",
+    "Implement the global Haptics toggle in the Profile or Settings, wrapping the `expo-haptics` triggers."
+  ]
+}
